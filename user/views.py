@@ -11,7 +11,7 @@ class UserView(APIView):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, {"message": '회원가입이 완료되었습니다.'})
+            return Response({"message": '회원가입이 완료되었습니다.'})
         else:
             return Response({"message": f'{serializer.errors}'})
 
